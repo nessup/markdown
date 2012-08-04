@@ -19,11 +19,10 @@ def api_message():
         print request.json
         if 'b64image' in request.json:
             img =  request.json['b64image']
-            print img
-            str64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAGFBMVEX///8AAADdcDJ2dnbxxKrooHbFXSLiiFTBBJn/AAAAoUlEQVQI1+2P2wpCMQwEs7m0///HCgtFjwiGBUXItPRthq19iWEYBgCavvcGBJ0Aks6EpDMh6Uz0dCGBlblfMfOPA2tVXfQ090bgmsh07waYOHo3QDKP3g4QN7PtQmA5/R8GlrkYyGYg9AUW0gL9C/KCEALBN4A3AXz4hadEtXQm4nFFtvRgIyJOoho6Zd6zoi56o8IVRb2l8hBQ/wuGYRhuUkAKnGTDFncAAAAASUVORK5CYII%3D'
-            print img == str64
-            #png_recovered = base64.decodestring(request.json['b64image'])
-            png_recovered = base64.urlsafe_b64decode(str64)
+            # example
+            #str642 = 'iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAGFBMVEX///8AAADdcDJ2dnbxxKrooHbFXSLiiFTBBJn/AAAAoUlEQVQI1+2P2wpCMQwEs7m0///HCgtFjwiGBUXItPRthq19iWEYBgCavvcGBJ0Aks6EpDMh6Uz0dCGBlblfMfOPA2tVXfQ090bgmsh07waYOHo3QDKP3g4QN7PtQmA5/R8GlrkYyGYg9AUW0gL9C/KCEALBN4A3AXz4hadEtXQm4nFFtvRgIyJOoho6Zd6zoi56o8IVRb2l8hBQ/wuGYRhuUkAKnGTDFncAAAAASUVORK5CYII='
+            png_recovered = base64.decodestring(request.json['b64image'])
+            #png_recovered = base64.decodestring(str642)
             f = open("temp.png", "w")
             f.write(png_recovered)
             f.close()
