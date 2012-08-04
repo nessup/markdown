@@ -4,7 +4,11 @@
   "description": "Capture screen images and convert them to photoshop files",
   "browser_action": {
     "default_icon": "icon.jpeg",
-	"popup": "popup.html"
+  "browser_action": {
+    "default_popup": "popup.html"
+    },
+
+  "options_page": "options.html",
   },
   "permissions": [
     "tabs",
