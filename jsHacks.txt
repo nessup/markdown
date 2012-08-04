@@ -1,0 +1,66 @@
+var numElements = 0;
+var elems = new Array();
+$('div:visible').each(function(i){
+	var e = $(this);
+	var area = e.height()*e.width();
+	if(area > 100){ //only handle the significant elements
+		//console.log(i, e, area)
+		//numElements++;
+		//e.css('visibility', 'visible');
+		var offset = e.offset();
+		console.log(e ,e.height(),e.width(),offset.top, offset.left);
+		elems.push(e)
+	}
+});
+
+$('*').css('visibility','hidden'); // hide _ALL_ elements
+
+//console.log(numElements);
+
+$(elems).each(function(i, e){
+	//var e = $(this);
+	var offset = e.offset();
+	console.log(e ,e.height(),e.width(),offset.top, offset.left);
+	//e.children.css('visibility', 'hidden');
+	e.children().hide();
+	//e.siblings().css('visibility', 'hidden');
+	sleep(1000);
+	//e.css('visibility', 'visible');
+	//e.siblings().css('visibility', 'visible');
+	//this.css('visibility','visible');
+	// take screenshot, sleep
+	//this.css('visibility','hidden');
+	//e.css('visibility','visible').delay(1000).animate({'z-index': 1000},0).css('visibility','hidden')
+});
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+$(elems.reverse()).each(function(){
+	var e = $(this);
+	e.css('visibility','visible');
+    setTimeout( function(){
+      e.css('visibility','hidden');
+   	},1000);
+});
+
+$(elems.reverse()).each(function(){
+	console.log(this)
+});
+
+
+
+
+
+
+// Load jQuery in Google Chrome Console on any page
+var jq = document.createElement('script');
+jq.src = "http://code.jquery.com/jquery-latest.min.js";
+document.getElementsByTagName('head')[0].appendChild(jq);
+jQuery.noConflict();
