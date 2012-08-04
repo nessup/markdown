@@ -1,0 +1,15 @@
+{
+  "name": "Mardown wand",
+  "version": "1.0",
+  "description": "Capture screen images and convert them to photoshop files",
+  "browser_action": {
+    "default_icon": "icon.png",
+	"popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "cookies",
+    "<all_urls>"
+  ],
+}
+
